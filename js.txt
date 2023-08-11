@@ -1,0 +1,46 @@
+// Get the search input element
+const searchInput = document.getElementById('searchInput');
+
+// Get all <li> items in the list
+const listItems = document.querySelectorAll('#list li');
+
+// Listen for the 'input' event on the search input
+searchInput.addEventListener('input', function () {
+    // Get the search term and convert it to lowercase
+    const searchTerm = searchInput.value.toLowerCase();
+
+    // Loop through each <li> item in the list
+    listItems.forEach(item => {
+        // Get the text of the item and convert it to lowercase
+        const text = item.textContent.toLowerCase();
+
+        // If the item's text supports the search term, display it
+        if (text.includes(searchTerm)) {
+            item.style.display = 'block';
+        } else {
+            // Otherwise, hide it
+            item.style.display = 'none';
+        }
+    });
+});
+
+
+
+
+In the first line, the searchInput variable gets the search input element using its id, which is 'searchInput'.
+
+In the second line, the listItems variable gets all <li> items in the list using the id 'list'.
+
+In the third line, an event listener is added to the searchInput to listen for the 'input' event. When the user types something, this event is triggered.
+
+In the fourth line, the searchTerm variable gets the search term from the search input and converts it to lowercase.
+
+Starting from the fifth line, a loop is initiated through each <li> item in the listItems.
+
+In the sixth line, after obtaining the text of the current <li> item, it is converted to lowercase.
+
+From the seventh line and above, if the text of the item contains the search term (using the includes function), the item is displayed (its display style is set to 'block').
+
+Starting from the eighth line and above, if the text of the item does not contain the search term, the item is hidden (its display style is set to 'none').
+
+This code implements a search filter that allows users to search and filter items in a list based on the entered search term.
